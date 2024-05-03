@@ -503,11 +503,12 @@
 }
 
 .chat-input-panel {
-  position: fixed; // Fixes the panel at the bottom
+  position: relative;
   width: 100%;
-  padding: 10px; // Reduced padding for mobile
+  padding: 20px;
+  padding-top: 10px;
   box-sizing: border-box;
-  bottom: 0; // Ensure the chat input is at the bottom
+  flex-direction: column;
   border-top: var(--border-in-light);
   box-shadow: var(--card-shadow);
   display: flex;
