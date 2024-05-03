@@ -503,14 +503,19 @@
 }
 
 .chat-input-panel {
-  position: relative;
+  position: fixed; // Fixes the panel at the bottom
   width: 100%;
-  padding: 20px;
-  padding-top: 10px;
+  padding: 10px; // Reduced padding for mobile
   box-sizing: border-box;
-  flex-direction: column;
+  bottom: 0; // Ensure the chat input is at the bottom
   border-top: var(--border-in-light);
   box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: flex-end;
+
+  @media only screen and (max-width: 600px) {
+    padding: 8px; // Adjust padding as needed
+    box-shadow: none; // You can remove shadow to make it simpler
 
   .chat-input-actions {
     .chat-input-action {
@@ -598,27 +603,28 @@
   background-color: var(--white);
   color: var(--black);
   font-family: inherit;
-  padding: 10px 90px 10px 14px;
+  padding: 10px 14px;
   resize: none;
   outline: none;
   box-sizing: border-box;
   min-height: 68px;
-}
+  flex: 1;
 
+  @media only screen and (max-width: 600px) {
+    padding: 8px; // Adjust padding for mobile
+}
+}
 .chat-input:focus {}
 
 .chat-input-send {
   background-color: var(--primary);
   color: white;
-
-  position: absolute;
-  right: 30px;
-  bottom: 32px;
+  margin-left: 10px;
+  
+  @media only screen and (max-width: 600px) {
+    right: 8px; // Adjust as needed
+    bottom: 8px; // Adjust as needed
 }
-
-@media only screen and (max-width: 600px) {
-  .chat-input {
-    font-size: 16px;
   }
 
   .chat-input-send {
