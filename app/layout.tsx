@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import "./styles/globals.scss";
 import "./styles/markdown.scss";
@@ -8,7 +9,6 @@ import { getClientConfig } from "./config/client";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getServerSideConfig } from "./config/server";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { SessionProvider } from "next-auth/react";
 
 const APP_NAME = "DeepChat";
 const APP_DEFAULT_TITLE = "DeepChat - AI Chatbot";
@@ -74,7 +74,7 @@ export default function RootLayout({
         <script src="/serviceWorkerRegister.js" defer></script>
       </head>
       <body>
-        <SessionProvider>{children}</SessionProvider>
+        {children}
         {serverConfig?.isVercel && (
           <>
             <SpeedInsights />
