@@ -1,13 +1,9 @@
 import withPWAInit from "@ducanh2912/next-pwa";
 import webpack from "webpack";
 
-const withPWA = withPWAInit({
-  dest: "public",
-});
-
+const withPWA = withPWAInit({ dest: "public" });
 const mode = process.env.BUILD_MODE ?? "standalone";
 console.log("[Next] build mode", mode);
-
 const disableChunk = !!process.env.DISABLE_CHUNK || mode === "export";
 console.log("[Next] build with chunk: ", !disableChunk);
 
@@ -18,17 +14,14 @@ const nextConfig = {
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
-
     if (disableChunk) {
       config.plugins.push(
-        new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 })
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1,
+        })
       );
     }
-
-    config.resolve.fallback = {
-      child_process: false,
-    };
-
+    config.resolve.fallback = { child_process: false };
     return config;
   },
   output: mode,
@@ -37,6 +30,7 @@ const nextConfig = {
   },
   experimental: {
     forceSwcTransforms: true,
+    serverActions: true, // Add this line to enable Server Actions
   },
 };
 
@@ -57,7 +51,6 @@ if (mode !== "export") {
       },
     ];
   };
-
   nextConfig.rewrites = async () => {
     const ret = [
       // adjust for previous version directly using "/api/proxy/" as proxy base route
@@ -86,10 +79,7 @@ if (mode !== "export") {
         destination: "https://sharegpt.com/api/conversations",
       },
     ];
-
-    return {
-      beforeFiles: ret,
-    };
+    return { beforeFiles: ret };
   };
 }
 
