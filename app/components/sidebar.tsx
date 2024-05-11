@@ -4,7 +4,7 @@ import styles from "./home.module.scss";
 
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
-import GithubIcon from "../icons/github.svg";
+import Lockicon from "../icons/lock.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
@@ -23,7 +23,7 @@ import {
   MIN_SIDEBAR_WIDTH,
   NARROW_SIDEBAR_WIDTH,
   Path,
-  REPO_URL,
+  AUTH_PAGE,
 } from "../constant";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -93,7 +93,6 @@ function useDragSideBar() {
         }
       });
     };
-
     const handleDragEnd = () => {
       // In useRef the data is non-responsive, so `config.sidebarWidth` can't get the dynamic sidebarWidth
       window.removeEventListener("pointermove", handleDragMove);
@@ -217,8 +216,8 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
-              <IconButton icon={<GithubIcon />} shadow />
+            <a href={AUTH_PAGE} target="_blank" rel="noopener noreferrer">
+              <IconButton icon={<Lockicon />} shadow />
             </a>
           </div>
         </div>
