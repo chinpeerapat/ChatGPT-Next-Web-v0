@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  chatgpt-next-web:
+  DeepChat:
     profiles: [ "no-proxy" ]
     container_name: chatgpt-next-web
     image: yidadaa/chatgpt-next-web
