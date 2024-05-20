@@ -1,6 +1,7 @@
-export const OWNER = "Yidadaa";
+export const OWNER = "chinpeerapat";
 export const REPO = "ChatGPT-Next-Web";
 export const REPO_URL = `https://github.com/${OWNER}/${REPO}`;
+export const AUTH_PAGE = `https://independent-period-23.authkit.app/`;
 export const ISSUE_URL = `https://github.com/${OWNER}/${REPO}/issues`;
 export const UPDATE_URL = `${REPO_URL}#keep-updated`;
 export const RELEASE_URL = `${REPO_URL}/releases`;
@@ -49,10 +50,17 @@ export enum StoreKey {
   Sync = "sync",
 }
 
-export const DEFAULT_SIDEBAR_WIDTH = 300;
-export const MAX_SIDEBAR_WIDTH = 500;
-export const MIN_SIDEBAR_WIDTH = 230;
 export const NARROW_SIDEBAR_WIDTH = 100;
+
+export const DEFAULT_SIDEBAR_WIDTH = 340;
+export const MAX_SIDEBAR_WIDTH = 440;
+export const MIN_SIDEBAR_WIDTH = 230;
+
+export const WINDOW_WIDTH_SM = 480;
+export const WINDOW_WIDTH_MD = 768;
+export const WINDOW_WIDTH_LG = 1120;
+export const WINDOW_WIDTH_XL = 1440;
+export const WINDOW_WIDTH_2XL = 1980;
 
 export const ACCESS_CODE_PREFIX = "nk-";
 
@@ -149,7 +157,7 @@ const openaiModels = [
   "gpt-4o",
   "gpt-4o-2024-05-13",
   "gpt-4-vision-preview",
-  "gpt-4-turbo-2024-04-09"
+  "gpt-4-turbo-2024-04-09",
 ];
 
 const googleModels = [
@@ -212,3 +220,5 @@ export const internalAllowedWebDavEndpoints = [
   "https://webdav.yandex.com",
   "https://app.koofr.net/dav/Koofr",
 ];
+
+export const SIDEBAR_ID = "sidebar";

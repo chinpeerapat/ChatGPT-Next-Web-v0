@@ -1,4 +1,4 @@
-FROM node:18-alpine AS base
+FROM node:22-alpine AS base
 
 FROM base AS deps
 
@@ -18,6 +18,10 @@ RUN apk update && apk add --no-cache git
 ENV OPENAI_API_KEY=""
 ENV GOOGLE_API_KEY=""
 ENV CODE=""
+ENV WORKOS_CLIENT_ID=""
+ENV WORKOS_REDIRECT_URI=""
+ENV WORKOS_API_KEY=
+ENV WORKOS_COOKIE_PASSWORD=""
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -31,9 +35,14 @@ WORKDIR /app
 RUN apk add proxychains-ng
 
 ENV PROXY_URL=""
+
 ENV OPENAI_API_KEY=""
 ENV GOOGLE_API_KEY=""
 ENV CODE=""
+ENV WORKOS_CLIENT_ID="client_01HXB3N4QT6QXVMN0PM4427ZDA"
+ENV WORKOS_REDIRECT_URI=""
+ENV WORKOS_API_KEY=
+ENV WORKOS_COOKIE_PASSWORD=""
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./

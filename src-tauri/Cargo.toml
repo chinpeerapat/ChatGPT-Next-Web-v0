@@ -1,11 +1,11 @@
 [package]
-name = "nextchat"
+name = "deepchat"
 version = "0.1.0"
-description = "A cross platform app for LLM ChatBot."
-authors = ["Yidadaa"]
+description = "AI Chat of your choice"
+authors = ["deepbun"]
 license = "mit"
 repository = ""
-default-run = "nextchat"
+default-run = "deepchat"
 edition = "2021"
 rust-version = "1.60"
 
