@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { showToast } from "./components/ui-lib";
