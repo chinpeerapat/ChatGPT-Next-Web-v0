@@ -1,5 +1,5 @@
 {
-  "name": "nextchat",
+  "name": "DeepChat",
   "private": false,
   "license": "mit",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.7",
+    "tailwindcss": "^2.0.0",
     "@fortaine/fetch-event-source": "^3.0.6",
     "@hello-pangea/dnd": "^16.5.0",
     "@next/third-parties": "^14.1.0",
