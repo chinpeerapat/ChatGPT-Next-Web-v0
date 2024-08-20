@@ -6,6 +6,19 @@ import "./styles/highlight.scss";
 import "./styles/globals.css";
 import "./styles/base-new.scss";
 import { getClientConfig } from "./config/client";
+import type { Metadata, Viewport } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getServerSideConfig } from "./config/server";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+const serverConfig = getServerSideConfig();
+
+export const metadata: Metadata = {
+  title: "NextChat",
+  description: "Your personal ChatGPT Chat Bot.",
+  appleWebApp: {
+    title: "NextChat",
+    statusBarStyle: "default",
+=======
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getServerSideConfig } from "./config/server";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -53,6 +66,12 @@ export const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 1,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#fafafa" },
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
@@ -83,6 +102,11 @@ export default function RootLayout({
         {serverConfig?.gtmId && (
           <>
             <GoogleTagManager gtmId={serverConfig.gtmId} />
+          </>
+        )}
+        {serverConfig?.gaId && (
+          <>
+            <GoogleAnalytics gaId={serverConfig.gaId} />
           </>
         )}
       </body>

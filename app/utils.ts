@@ -196,6 +196,7 @@ export function autoGrowTextArea(dom: HTMLTextAreaElement) {
   measureDom.style.width = width + "px";
   measureDom.innerText = dom.value !== "" ? dom.value : "1";
   measureDom.style.fontSize = dom.style.fontSize;
+  measureDom.style.fontFamily = dom.style.fontFamily;
   const endWithEmptyLine = dom.value.endsWith("\n");
   const height = parseFloat(window.getComputedStyle(measureDom).height);
   const singleLineHeight = parseFloat(
@@ -258,6 +259,7 @@ export function isVisionModel(model: string) {
     "gemini-1.5-pro",
     "gemini-1.5-flash",
     "gpt-4o",
+    "gpt-4o-mini",
   ];
   const isGpt4Turbo =
     model.includes("gpt-4-turbo") && !model.includes("preview");
@@ -267,11 +269,8 @@ export function isVisionModel(model: string) {
   );
 }
 
-export function getTime(dateTime: string) {
-  const time = dayjs(dateTime);
-  const now = dayjs();
-  if (time.isBefore(now, "date")) {
-    return time.format("MM-DD");
-  }
-  return time.format("hh:mm");
+
+export function isDalle3(model: string) {
+  return "dall-e-3" === model;
+
 }
