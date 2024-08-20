@@ -1,4 +1,6 @@
+"use client"
 import { useEffect, useState } from "react";
+import dayjs from "dayjs";
 import { showToast } from "./components/ui-lib";
 import Locale from "./locales";
 import { RequestMessage } from "./client/api";
@@ -267,6 +269,8 @@ export function isVisionModel(model: string) {
   );
 }
 
+
 export function isDalle3(model: string) {
   return "dall-e-3" === model;
+
 }

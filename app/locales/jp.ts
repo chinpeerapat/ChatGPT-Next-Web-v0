@@ -128,7 +128,12 @@ const jp: PartialLocaleType = {
   },
   Settings: {
     Title: "設定",
+
     SubTitle: "すべての設定オプション",
+
+
+    SubTitle: "設定オプション",
+    GeneralSettings: "一般設定",
 
     Danger: {
       Reset: {
